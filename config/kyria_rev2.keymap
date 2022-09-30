@@ -6,25 +6,134 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include "keymap_spanish.h"
+
+
+// Layer definitions
+    #define ALPHA 0
+    #define LOL 1
+    #define NUM 2
+    #define SYM 3
+    #define NAV 4
+    #define SNAP 5
+    #define ADJUST 6
+
+// None/Trans
+    #define XXXXX &none
+    #define _____ &trans
+// Shortcuts
+    #define RUNNER LA(SPACE)
+    #define MO_TOG(layer) &mo_tog layer layer
+
+/*
+ * Layout Indices
+ * 00 01 02 03 04 05               06 07 08 09 10 11
+ * 12 13 14 15 16 17               18 19 20 21 22 23
+ * 24 25 26 27 28 29 30 31   32 33 34 35 36 37 38 39
+ *          40 41 42 43 44   45 46 47 48 49         
+ */
 
 / {
+  combos {
+    compatible = "zmk,combos";
+    combo_lol {
+      timeout-ms = <50>;
+      key-positions = <0 11>;
+      bindings = <&to LOL>;
+    };
+    combo_lol_shop {
+      timeout-ms = <50>;
+      key-positions = <4 5>;
+      bindings = <&kp P>;
+    };
+    combo_lol_back {
+      timeout-ms = <50>;
+      key-positions = <29 42>;
+      bindings = <&kp B>;
+    };
+  };
+
+  behaviors {
+    hm: homerow_mods {
+      compatible = "zmk,behavior-hold-tap";
+      label = "HOMEROW_MODS";
+      #binding-cells = <2>;
+      tapping-term-ms = <150>;
+      quick-tap-ms = <0>;
+      flavor = "tap-preferred";
+      bindings = <&kp>, <&kp>;
+    };
+    mo_tog: behavior_mo_tog {
+      compatible = "zmk,behavior-hold-tap";
+      label = "mo_tog";
+      #binding-cells = <2>;
+      flavor = "hold-preferred";
+      tapping-term-ms = <200>;
+      bindings = <&mo>, <&tog>;
+    };
+    td_num: tap_dance_num {
+        compatible = "zmk,behavior-tap-dance";
+        label = "TAP_DANCE_NUM";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&sl NUM>, <MO_TOG(NUM)>;
+    };
+    td_sym: tap_dance_sym {
+        compatible = "zmk,behavior-tap-dance";
+        label = "TAP_DANCE_SYM";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&sl SYM>, <MO_TOG(SYM)>;
+    };
+    td_nav: tap_dance_nav {
+        compatible = "zmk,behavior-tap-dance";
+        label = "TAP_DANCE_NAV";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&sl NAV>, <MO_TOG(NAV)>;
+    };
+    td_snap: tap_dance_snap {
+        compatible = "zmk,behavior-tap-dance";
+        label = "TAP_DANCE_SNAP";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&sl SNAP>, <MO_TOG(SNAP)>;
+    };
+  };
+
 	keymap {
 		compatible = "zmk,keymap";
 
 		default_layer {
-// ---------------------------------------------------------------------------------------------------------------------------------
-// |  ESC  |  Q  |  W  |  E   |  R   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   |   \  |
-// |  TAB  |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   |   '  |
-// | SHIFT |  Z  |  X  |  C   |  V   |  B   | L SHIFT | L SHIFT |  | L SHIFT | L SHIFT |  N   |  M    |  ,    |  .   |   /   | CTRL |
-//                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
-			bindings = <
-	&kp ESC   &kp Q &kp W &kp E &kp R &kp T                                                &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSLH
-	&kp TAB   &kp A &kp S &kp D &kp F &kp G                                                &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-	&kp LSHFT &kp Z &kp X &kp C &kp V &kp B &kp LSHFT &kp LSHFT        &kp LSHFT &kp LSHFT &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RCTRL
-	                 &kp LGUI &kp DEL &kp RET &kp SPACE &kp ESC        &kp RET  &kp SPACE  &kp TAB &kp BSPC &kp RALT
-			>;
+    // -------------------------------------------------------------------------------------------------------------------------
+    // |  ESC  |  Q  |  W  |  E   |  R   |  T   |                                    |  Y   |  U   |  I   |  O   |  P   |  BS  |
+    // |  TAB  |  A  |  S  |  D   |  F   |  G   |                                    |  H   |  J   |  K   |  L   |  Ñ   |   ´  |
+    // |RUNNER |  Z  |  X  |  C   |  V   |  B   |         | ENTER |  |       |       |  N   |  M   |  ,   |  .   |  -   | CAPS |
+    //                     | ENC1 | NAV  | NUM  |  SPACE  |L SHIFT|  |R SHIFT| SPACE | SYM  | SNAP | ENC2 |
+      bindings = <
+        &kp ESC    &kp Q &kp W      &kp E      &kp R       &kp T                                                    &kp Y   &kp U       &kp I      &kp O      &kp P       &kp BSPC
+        &kp TAB    &kp A &hm LALT S &hm LGUI D &hm LCTRL F &kp G                                                    &kp H   &hm RCTRL J &hm RGUI K &hm LALT L &kp ES_NTIL &kp ES_ACUT
+        &kp RUNNER &kp Z &kp X      &kp C      &kp V       &kp B   XXXXX     XXXXX              XXXXX     XXXXX     &kp N   &kp M       &kp COMMA  &kp DOT    &kp ES_MINS &kp CAPS
+                                    &kt LALT   &td_nav     &td_num &kp SPACE &mt LSHFT ENTER    &kp RSHFT &kp SPACE &td_sym &td_snap    &kp C_MUTE
+      >;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+      sensor-bindings = <&inc_dec_kp TAB LS(TAB) &inc_dec_kp C_VOL_UP C_VOL_DN>;
+		};
+
+		lol_layer {
+    // ------------------------------------------------------------------------------------------------------------------------
+    // |  ESC  |  1   |  2   |  3   |  4   |  5     |                                  |        |     |     |     |     |        |
+    // |  TAB  |  Q   |  W   |  E   |  R   |  T     |                                  |        |     |     |     |     |        |
+    // |   Z   |  A   |  S   |  D   |  F   |  G     |         |         |  |     |     |        |     |     |     |     | ALPHA  |
+    //                       | ENC1 | LALT | LCTL   |  SPACE  |  ENTER  |  |     |     |  LGUI  |     | ENC2|
+      bindings = <
+        &kp ESC &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                                      XXXXX    XXXXX XXXXX XXXXX XXXXX XXXXX
+        &kp TAB &kp Q  &kp W  &kp E  &kp R  &kp T                                       XXXXX    XXXXX XXXXX XXXXX XXXXX XXXXX
+        &kp Z   &kp A  &kp S  &kp D  &kp F  &kp G    XXXXX     XXXXX        XXXXX XXXXX XXXXX    XXXXX XXXXX XXXXX XXXXX &to ALPHA
+                       &kt C_MUTE &kp LALT &kp LCTRL &kp SPACE &kp ENTER    XXXXX XXXXX &kp LGUI XXXXX &kt LALT
+      >;
+
+      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp TAB LS(TAB)>;
 		};
 	};
 };
