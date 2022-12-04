@@ -29,6 +29,7 @@
     #define CLOSE LA(F4)
     #define MO_TOG(layer) &mo_tog layer layer
     #define SL_TOG(layer) &sl_tog layer layer
+    #define MO_SL(layer) &mo_sl layer layer
     #define META(key) LC(LA(LG(key)))
     #define LSG(key) LS(LG(key))
 
@@ -101,33 +102,41 @@
       tapping-term-ms = <200>;
       bindings = <&sl>, <&tog>;
     };
+    mo_sl: behavior_mo_sl {
+      compatible = "zmk,behavior-hold-tap";
+      label = "mo_sl";
+      #binding-cells = <2>;
+      flavor = "hold-preferred";
+      tapping-term-ms = <200>;
+      bindings = <&mo>, <&sl>;
+    };
     td_num: tap_dance_num {
         compatible = "zmk,behavior-tap-dance";
         label = "TAP_DANCE_NUM";
         #binding-cells = <0>;
         tapping-term-ms = <200>;
-        bindings = <SL_TOG(NUM)>, <&tog NUM>;
+        bindings = <MO_SL(NUM)>, <&tog NUM>;
     };
     td_sym: tap_dance_sym {
         compatible = "zmk,behavior-tap-dance";
         label = "TAP_DANCE_SYM";
         #binding-cells = <0>;
         tapping-term-ms = <200>;
-        bindings = <SL_TOG(SYM)>, <&tog SYM>;
+        bindings = <MO_SL(SYM)>, <&tog SYM>;
     };
     td_nav: tap_dance_nav {
         compatible = "zmk,behavior-tap-dance";
         label = "TAP_DANCE_NAV";
         #binding-cells = <0>;
         tapping-term-ms = <200>;
-        bindings = <SL_TOG(NAV)>, <&tog NAV>;
+        bindings = <MO_SL(NAV)>, <&tog NAV>;
     };
     td_snap: tap_dance_snap {
         compatible = "zmk,behavior-tap-dance";
         label = "TAP_DANCE_SNAP";
         #binding-cells = <0>;
         tapping-term-ms = <200>;
-        bindings = <SL_TOG(SNAP)>, <&tog SNAP>;
+        bindings = <MO_SL(SNAP)>, <&tog SNAP>;
     };
     td_abk: tap_dance_abk {
         compatible = "zmk,behavior-tap-dance";
