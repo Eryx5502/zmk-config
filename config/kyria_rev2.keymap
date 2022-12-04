@@ -243,7 +243,7 @@
         _____ &kp F1 &kp F2      &kp F3      &kp F4       _____                              &kp ES_SLSH &kp N7       &kp N8      &kp N9      &kp ES_MINS &kp BSPC
         _____ &kp F5 &hm LALT F6 &hm LGUI F7 &hm LCTRL F8 _____                              &kp ES_ASTR &hm RCTRL N4 &hm RGUI N5 &hm LALT N6 &kp ES_PLUS &kp COMMA
         _____ &kp F9 &kp F10     &kp F11     &kp F12      _____ XXXXX XXXXX      XXXXX XXXXX &kp ES_EQL  &kp N1       &kp N2      &kp N3      &kp KP_DOT  &kp ENTER
-                                             &kp CLOSE    _____ _____ _____      _____ _____ &kp N0      _____        &kp C_PLAY_PAUSE
+                                             &kp CLOSE    _____ _____ _____      _____ _____ _____       &kp N0       &kp C_PLAY_PAUSE
       >;
 
       sensor-bindings = <&inc_dec_kp TAB LS(TAB) &inc_dec_kp C_VOL_UP C_VOL_DN>;
