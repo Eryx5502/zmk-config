@@ -283,14 +283,14 @@
 
 		adjust_layer {
     // ---------------------------------------------------------------------------------------------------------------
-    // |     |     |     |     |     |      |                                  |OUT_USB|OUT_TOG|OUT_BLE|       |       |      |
-    // |     |     |     |     |     |QWERTY|                                  |BT_CLR |BT_SEL1|BT_SEL2|BT_SEL3|BT_SEL4|      |
-    // |     |     |     |     |     |EP_TOG|     |     |         |      |     |       |       |       |       |       |      |
-    //                   |     |     |      |     |     |         |      |     |       |       |   ENC2|
+    // |     |     |     |     |EP_ON |      |                                  |OUT_USB|OUT_TOG|OUT_BLE|       |       |      |
+    // |     |     |     |     |EP_TOG|QWERTY|                                  |BT_CLR |BT_SEL1|BT_SEL2|BT_SEL3|BT_SEL4|      |
+    // |     |     |     |     |EP_OFF|EP_TOG|     |     |         |      |     |       |       |       |       |       |      |
+    //                   |     |      |      |     |     |         |      |     |       |       |   ENC2|
       bindings = <
-        _____ _____ _____ _____ _____ _____                                          &out OUT_USB   &out OUT_TOG &out OUT_BLE _____        _____         _____
-        _____ _____ _____ _____ _____ &to ALPHA                                      &bt BT_CLR     &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  _____
-        _____ _____ _____ _____ _____ &ext_power EP_TOG XXXXX XXXXX      XXXXX XXXXX _____          _____        _____        _____        _____         _____
+        _____ _____ _____ _____ &ext_power EP_ON  _____                                          &out OUT_USB   &out OUT_TOG &out OUT_BLE _____        _____         _____
+        _____ _____ _____ _____ &ext_power EP_TOG &to ALPHA                                      &bt BT_CLR     &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  _____
+        _____ _____ _____ _____ &ext_power EP_OFF _____ XXXXX XXXXX      XXXXX XXXXX _____          _____        _____        _____        _____         _____
                                      _____ _____  _____ _____ _____      _____ _____ _____          _____        _____
       >;
 
