@@ -26,10 +26,11 @@
     #define _____ &trans
 // Shortcuts
     #define RUNNER LA(SPACE)
+    #define LOCK LG(L)
     #define CLOSE LA(F4)
     #define MO_TOG(layer) &mo_tog layer layer
-    #define SL_TOG(layer) &sl_tog layer layer
     #define MO_SL(layer) &mo_sl layer layer
+    #define LAYER(layer) MO_SL(layer)
     #define META(key) LC(LA(LG(key)))
     #define LSG(key) LS(LG(key))
 
@@ -63,6 +64,16 @@
 
   combos {
     compatible = "zmk,combos";
+    combo_lshift {
+      timeout-ms = <50>;
+      key-positions = <30 43>;
+      bindings = <&skq LSHFT>;
+    };
+    combo_rshift {
+      timeout-ms = <50>;
+      key-positions = <33 46>;
+      bindings = <&skq RSHFT>;
+    };
     combo_lol {
       timeout-ms = <50>;
       key-positions = <0 11>;
@@ -90,6 +101,14 @@
       flavor = "tap-preferred";
       bindings = <&kp>, <&kp>;
     };
+    skq: sticky_key_quick_release {
+      compatible = "zmk,behavior-sticky-key";
+      label = "STICKY_KEY_QUICK_RELEASE";
+      #binding-cells = <1>;
+      bindings = <&kp>;
+      release-after-ms = <1000>;
+      quick-release;
+    };
     mo_tog: behavior_mo_tog {
       compatible = "zmk,behavior-hold-tap";
       label = "mo_tog";
@@ -113,34 +132,6 @@
       flavor = "tap-unless-interrupted";
       tapping-term-ms = <200>;
       bindings = <&mo>, <&sl>;
-    };
-    td_num: tap_dance_num {
-        compatible = "zmk,behavior-tap-dance";
-        label = "TAP_DANCE_NUM";
-        #binding-cells = <0>;
-        tapping-term-ms = <200>;
-        bindings = <MO_SL(NUM)>, <&tog NUM>;
-    };
-    td_sym: tap_dance_sym {
-        compatible = "zmk,behavior-tap-dance";
-        label = "TAP_DANCE_SYM";
-        #binding-cells = <0>;
-        tapping-term-ms = <200>;
-        bindings = <MO_SL(SYM)>, <&tog SYM>;
-    };
-    td_nav: tap_dance_nav {
-        compatible = "zmk,behavior-tap-dance";
-        label = "TAP_DANCE_NAV";
-        #binding-cells = <0>;
-        tapping-term-ms = <200>;
-        bindings = <MO_SL(NAV)>, <&tog NAV>;
-    };
-    td_snap: tap_dance_snap {
-        compatible = "zmk,behavior-tap-dance";
-        label = "TAP_DANCE_SNAP";
-        #binding-cells = <0>;
-        tapping-term-ms = <200>;
-        bindings = <MO_SL(SNAP)>, <&tog SNAP>;
     };
     td_abk: tap_dance_abk {
         compatible = "zmk,behavior-tap-dance";
@@ -196,10 +187,10 @@
     // |RUNNER |  Z  |  X  |  C   |  V   |  B   |         | ENTER |  |       |       |  N   |  M   |  ,   |  .   |  -   | CAPS |
     //                     | ENC1 | NAV  | NUM  |  SPACE  |L SHIFT|  |R SHIFT| SPACE | SYM  | SNAP | ENC2 |
       bindings = <
-        &kp ESC    &kp Q &kp W      &kp E       &kp R       &kp T                                                    &kp Y   &kp U       &kp I      &kp O      &kp P       &kp BSPC
-        &kp TAB    &kp A &hm LALT S &hm LGUI D  &hm LCTRL F &kp G                                                    &kp H   &hm RCTRL J &hm RGUI K &hm LALT L &kp ES_NTIL &kp ES_ACUT
-        &kp RUNNER &kp Z &kp X      &kp C       &kp V       &kp B   XXXXX     XXXXX              XXXXX     XXXXX     &kp N   &kp M       &kp COMMA  &kp DOT    &kp ES_MINS &kp CAPS
-                                    &alt_tabber &td_nav     &td_num &kp SPACE &mt LSHFT ENTER    &sk RSHFT &kp SPACE &td_sym &td_snap    &kp C_MUTE
+        &kp ESC    &kp Q &kp W      &kp E       &kp R       &kp T                                                       &kp Y      &kp U          &kp I      &kp O      &kp P       &kp BSPC
+        &kp TAB    &kp A &hm LALT S &hm LGUI D  &hm LCTRL F &kp G                                                       &kp H      &hm RCTRL J    &hm RGUI K &hm LALT L &kp ES_NTIL &kp ES_ACUT
+        &kp RUNNER &kp Z &kp X      &kp C       &kp V       &kp B      &kp CAPS  XXXXX              XXXXX     &kp CAPS  &kp N      &kp M          &kp COMMA  &kp DOT    &kp ES_MINS &kp LOCK
+                                    &alt_tabber LAYER(NAV)  LAYER(NUM) &kp SPACE &kp ENTER          XXXXX     &kp SPACE LAYER(SYM) LAYER(SNAP)    &kp C_MUTE
       >;
 
       sensor-bindings = <&inc_dec_kp LC(LG(LEFT)) LC(LG(RIGHT)) &inc_dec_kp C_VOL_DN C_VOL_UP>;
