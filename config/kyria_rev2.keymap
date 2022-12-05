@@ -32,6 +32,10 @@
     #define META(key) LC(LA(LG(key)))
     #define LSG(key) LS(LG(key))
 
+// Encoder resolutions
+  &left_encoder   { resolution = <2>; };
+  &right_encoder  { resolution = <2>; };
+
 /*
  * Layout Indices
  * 00 01 02 03 04 05               06 07 08 09 10 11
@@ -189,7 +193,7 @@
                                     &alt_tabber &td_nav     &td_num &kp SPACE &mt LSHFT ENTER    &sk RSHFT &kp SPACE &td_sym &td_snap    &kp C_MUTE
       >;
 
-      sensor-bindings = <&inc_dec_kp LC(LG(RIGHT)) LC(LG(LEFT)) &inc_dec_kp C_VOL_UP C_VOL_DN>;
+      sensor-bindings = <&inc_dec_kp LC(LG(LEFT)) LC(LG(RIGHT)) &inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
 
 		lol_layer {
@@ -205,7 +209,7 @@
                        &kt C_MUTE &kp LALT &kp LCTRL &kp SPACE &kp ENTER    XXXXX XXXXX &kp LGUI XXXXX &alt_tabber
       >;
 
-      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp TAB LS(TAB)>;
+      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp LS(TAB) TAB>;
 		};
 
 		sym_layer {
@@ -221,7 +225,7 @@
                                             &kp CLOSE   _____       _____       _____ _____      _____ _____ _____       _____    &kp C_PLAY_PAUSE
       >;
 
-      sensor-bindings = <&inc_dec_kp TAB LS(TAB) &inc_dec_kp C_VOL_UP C_VOL_DN>;
+      sensor-bindings = <&inc_dec_kp LS(TAB) TAB &inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
 
 		num_layer {
@@ -237,7 +241,7 @@
                                              &kp CLOSE    _____ _____ _____      _____ _____ &kp N0      _____        &kp C_PLAY_PAUSE
       >;
 
-      sensor-bindings = <&inc_dec_kp TAB LS(TAB) &inc_dec_kp C_VOL_UP C_VOL_DN>;
+      sensor-bindings = <&inc_dec_kp LS(TAB) TAB &inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
 
 		nav_layer {
@@ -253,7 +257,7 @@
                                         &kp CLOSE _____     _____     _____ _____      _____ _____ _____       _____        &kp C_PLAY_PAUSE
       >;
 
-      sensor-bindings = <&inc_dec_kp TAB LS(TAB) &inc_dec_kp C_VOL_UP C_VOL_DN>;
+      sensor-bindings = <&inc_dec_kp LS(TAB) TAB &inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
 
 		snap_layer {
@@ -269,7 +273,7 @@
                                         &kp CLOSE _____     _____     _____ _____      _____ _____ _____          _____          &kp C_PLAY_PAUSE
       >;
 
-      sensor-bindings = <&inc_dec_kp TAB LS(TAB) &inc_dec_kp C_VOL_UP C_VOL_DN>;
+      sensor-bindings = <&inc_dec_kp LS(TAB) TAB &inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
 
 		adjust_layer {
@@ -285,7 +289,7 @@
                                      _____ _____  _____ _____ _____      _____ _____ _____          _____        _____
       >;
 
-      sensor-bindings = <&inc_dec_kp TAB LS(TAB) &inc_dec_kp C_VOL_UP C_VOL_DN>;
+      sensor-bindings = <&inc_dec_kp LS(TAB) TAB &inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
 	};
 };
