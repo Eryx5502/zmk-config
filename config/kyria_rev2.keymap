@@ -29,6 +29,7 @@
     #define CLOSE LA(F4)
     #define MO_TOG(layer) &mo_tog layer layer
     #define SL_TOG(layer) &sl_tog layer layer
+    #define MO_SL(layer) &mo_sl layer layer
     #define META(key) LC(LA(LG(key)))
     #define LSG(key) LS(LG(key))
 
@@ -105,33 +106,41 @@
       tapping-term-ms = <200>;
       bindings = <&sl>, <&tog>;
     };
+    mo_sl: behavior_mo_sl {
+      compatible = "zmk,behavior-hold-tap";
+      label = "mo_sl";
+      #binding-cells = <2>;
+      flavor = "tap-unless-interrupted";
+      tapping-term-ms = <200>;
+      bindings = <&mo>, <&sl>;
+    };
     td_num: tap_dance_num {
         compatible = "zmk,behavior-tap-dance";
         label = "TAP_DANCE_NUM";
         #binding-cells = <0>;
         tapping-term-ms = <200>;
-        bindings = <SL_TOG(NUM)>, <&tog NUM>;
+        bindings = <MO_SL(NUM)>, <&tog NUM>;
     };
     td_sym: tap_dance_sym {
         compatible = "zmk,behavior-tap-dance";
         label = "TAP_DANCE_SYM";
         #binding-cells = <0>;
         tapping-term-ms = <200>;
-        bindings = <SL_TOG(SYM)>, <&tog SYM>;
+        bindings = <MO_SL(SYM)>, <&tog SYM>;
     };
     td_nav: tap_dance_nav {
         compatible = "zmk,behavior-tap-dance";
         label = "TAP_DANCE_NAV";
         #binding-cells = <0>;
         tapping-term-ms = <200>;
-        bindings = <SL_TOG(NAV)>, <&tog NAV>;
+        bindings = <MO_SL(NAV)>, <&tog NAV>;
     };
     td_snap: tap_dance_snap {
         compatible = "zmk,behavior-tap-dance";
         label = "TAP_DANCE_SNAP";
         #binding-cells = <0>;
         tapping-term-ms = <200>;
-        bindings = <SL_TOG(SNAP)>, <&tog SNAP>;
+        bindings = <MO_SL(SNAP)>, <&tog SNAP>;
     };
     td_abk: tap_dance_abk {
         compatible = "zmk,behavior-tap-dance";
@@ -233,12 +242,12 @@
     // |       |  F1  |  F2  |   F3  |  F4   |      |                                    |  /  |  7  |  8   |  9   |  -   | BS  |
     // |       |  F5  |  F6  |   F7  |  F8   |      |                                    |  *  |  4  |  5   |  6   |  +   |  ,  |
     // |       |  F9  |  F10 |   F11 |  F12  |      |         |       |  |       |       |  =  |  1  |  2   |  3   |  .   |ENTER|
-    //                       |  ENC1 |       |      |         |       |  |       |       |  0  |     | ENC2 |
+    //                       |  ENC1 |       |      |         |       |  |       |       |     |  0  | ENC2 |
       bindings = <
         _____ &kp F1 &kp F2      &kp F3      &kp F4       _____                              &kp ES_SLSH &kp N7       &kp N8      &kp N9      &kp ES_MINS &kp BSPC
         _____ &kp F5 &hm LALT F6 &hm LGUI F7 &hm LCTRL F8 _____                              &kp ES_ASTR &hm RCTRL N4 &hm RGUI N5 &hm LALT N6 &kp ES_PLUS &kp COMMA
         _____ &kp F9 &kp F10     &kp F11     &kp F12      _____ XXXXX XXXXX      XXXXX XXXXX &kp ES_EQL  &kp N1       &kp N2      &kp N3      &kp KP_DOT  &kp ENTER
-                                             &kp CLOSE    _____ _____ _____      _____ _____ &kp N0      _____        &kp C_PLAY_PAUSE
+                                             &kp CLOSE    _____ _____ _____      _____ _____ _____       &kp N0       &kp C_PLAY_PAUSE
       >;
 
       sensor-bindings = <&inc_dec_kp LS(TAB) TAB &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -267,9 +276,9 @@
     // |     |WIN 1|WIN 2|WIN 3|WIN 4|WIN 5|     |     |         |      |     |     |     |     |     |      |      |
     //                   |     |     |     |     |     |         |      |     |     |     | ENC2|
       bindings = <
-        _____          _____ _____      _____     &kp PSCRN _____                                  &kp META(LEFT) &kp META(DOWN) &kp META(UP) &kp META(RIGHT) _____ _____
-        MO_TOG(ADJUST) _____ &kp LALT   &kp LGUI  &kp LCTRL &kp LC(F)                              &kp LG(LEFT)   &kp LG(DOWN)   &kp LG(UP)   &kp LG(RIGHT)   _____ &kp LSG(ES_NTIL)
-        _____          _____ &kp LC(X)  &kp LC(C) &kp LC(V) _____     XXXXX XXXXX      XXXXX XXXXX _____          _____          _____        _____           _____ _____
+        _____ _____        _____        _____        _____        _____                            &kp META(LEFT) &kp META(DOWN) &kp META(UP) &kp META(RIGHT) _____ _____
+        _____ &kp META(N0) &kp META(N1) &kp META(N2) &kp META(N3) &kp META(N4)                     &kp LG(LEFT)   &kp LG(DOWN)   &kp LG(UP)   &kp LG(RIGHT)   _____ &kp LSG(ES_NTIL)
+        _____ &kp LG(N1)   &kp LG(N2)   &kp LG(N3)   &kp LG(N4)   &kp LG(N5)           XXXXX XXXXX _____          _____          _____        _____           _____ _____
                                         &kp CLOSE _____     _____     _____ _____      _____ _____ _____          _____          &kp C_PLAY_PAUSE
       >;
 
@@ -278,14 +287,14 @@
 
 		adjust_layer {
     // ---------------------------------------------------------------------------------------------------------------
-    // |     |     |     |     |     |      |                                  |OUT_USB|OUT_TOG|OUT_BLE|       |       |      |
-    // |     |     |     |     |     |QWERTY|                                  |BT_CLR |BT_SEL1|BT_SEL2|BT_SEL3|BT_SEL4|      |
-    // |     |     |     |     |     |EP_TOG|     |     |         |      |     |       |       |       |       |       |      |
-    //                   |     |     |      |     |     |         |      |     |       |       |   ENC2|
+    // |     |     |     |     |EP_ON |      |                                  |OUT_USB|OUT_TOG|OUT_BLE|       |       |      |
+    // |     |     |     |     |EP_TOG|QWERTY|                                  |BT_CLR |BT_SEL1|BT_SEL2|BT_SEL3|BT_SEL4|      |
+    // |     |     |     |     |EP_OFF|EP_TOG|     |     |         |      |     |       |       |       |       |       |      |
+    //                   |     |      |      |     |     |         |      |     |       |       |   ENC2|
       bindings = <
-        _____ _____ _____ _____ _____ _____                                          &out OUT_USB   &out OUT_TOG &out OUT_BLE _____        _____         _____
-        _____ _____ _____ _____ _____ &to ALPHA                                      &bt BT_CLR     &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  _____
-        _____ _____ _____ _____ _____ &ext_power EP_TOG XXXXX XXXXX      XXXXX XXXXX _____          _____        _____        _____        _____         _____
+        _____ _____ _____ _____ &ext_power EP_ON  _____                                          &out OUT_USB   &out OUT_TOG &out OUT_BLE _____        _____         _____
+        _____ _____ _____ _____ &ext_power EP_TOG &to ALPHA                                      &bt BT_CLR     &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  _____
+        _____ _____ _____ _____ &ext_power EP_OFF _____ XXXXX XXXXX      XXXXX XXXXX _____          _____        _____        _____        _____         _____
                                      _____ _____  _____ _____ _____      _____ _____ _____          _____        _____
       >;
 
