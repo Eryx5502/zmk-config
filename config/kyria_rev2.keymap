@@ -87,15 +87,11 @@
       key-positions = <0 11>;
       bindings = <&to LOL>;
     };
-    combo_lol_shop {
+    combo_lol_ctrl {
       timeout-ms = <50>;
-      key-positions = <4 5>;
-      bindings = <&kp P>;
-    };
-    combo_lol_back {
-      timeout-ms = <50>;
-      key-positions = <29 42>;
-      bindings = <&kp B>;
+      key-positions = <30 43>;
+      bindings = <&kp LCTRL>;
+      layers = <LOL>;
     };
   };
 
@@ -124,14 +120,6 @@
       flavor = "hold-preferred";
       tapping-term-ms = <200>;
       bindings = <&mo>, <&tog>;
-    };
-    sl_tog: behavior_sl_tog {
-      compatible = "zmk,behavior-hold-tap";
-      label = "sl_tog";
-      #binding-cells = <2>;
-      flavor = "hold-preferred";
-      tapping-term-ms = <200>;
-      bindings = <&sl>, <&tog>;
     };
     mo_sl: behavior_mo_sl {
       compatible = "zmk,behavior-hold-tap";
@@ -205,7 +193,8 @@
 		};
 
 		lol_layer {
-    // ------------------------------------------------------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------------------------------------------
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! NO ACTUALIZADO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     // |  ESC  |  1   |  2   |  3   |  4   |  5     |                                  |        |     |     |     |     |        |
     // |  TAB  |  Q   |  W   |  E   |  R   |  T     |                                  |        |     |     |     |     |        |
     // |   Z   |  A   |  S   |  D   |  F   |  G     |         |         |  |     |     |        |     |     |     |     | ALPHA  |
@@ -213,8 +202,8 @@
       bindings = <
         &kp ESC &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                                      XXXXX    XXXXX XXXXX XXXXX XXXXX XXXXX
         &kp TAB &kp Q  &kp W  &kp E  &kp R  &kp T                                       XXXXX    XXXXX XXXXX XXXXX XXXXX XXXXX
-        &kp Z   &kp A  &kp S  &kp D  &kp F  &kp G    XXXXX     XXXXX        XXXXX XXXXX XXXXX    XXXXX XXXXX XXXXX XXXXX &to ALPHA
-                       &kt C_MUTE &kp LALT &kp LCTRL &kp SPACE &kp ENTER    XXXXX XXXXX &kp LGUI XXXXX &alt_tabber
+        &kp B   &kp A  &kp S  &kp D  &kp F  &kp G    &kp LCTRL &kp Z        XXXXX XXXXX XXXXX    XXXXX XXXXX XXXXX XXXXX &to ALPHA
+                       &kt C_MUTE    &kp Z  &kp LALT &kp SPACE &kp ENTER    XXXXX XXXXX &kp LGUI XXXXX &alt_tabber
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp LS(TAB) TAB>;
