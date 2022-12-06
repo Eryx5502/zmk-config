@@ -77,6 +77,11 @@
       key-positions = <33 46>;
       bindings = <&skq RSHFT>;
     };
+    combo_caps {
+      timeout-ms = <50>;
+      key-positions = <30 33>;
+      bindings = <&kp CAPS>;
+    };
     combo_bloq_nav {
       timeout-ms = <50>;
       key-positions = <32 45>;
@@ -177,16 +182,16 @@
 		compatible = "zmk,keymap";
 
 		default_layer {
-    // -------------------------------------------------------------------------------------------------------------------------
-    // |  ESC  |  Q  |  W  |  E   |  R   |  T   |                                    |  Y   |  U   |  I   |  O   |  P   |  BS  |
-    // |  TAB  |  A  |  S  |  D   |  F   |  G   |                                    |  H   |  J   |  K   |  L   |  Ñ   |   ´  |
-    // |RUNNER |  Z  |  X  |  C   |  V   |  B   | L SHIFT |CPS WRD|  |BLQ NUM|R SHIFT|  N   |  M   |  ,   |  .   |  -   | CAPS |
-    //                     | ENC1 | NAV  | NUM  |  SPACE  | ENTER |  | ENTER | SPACE | SYM  | SNAP | ENC2 |
+    // ---------------------------------------------------------------------------------------------------------------------------
+    // |  ESC  |  Q  |  W  |  E   |  R   |  T   |                                      |  Y   |  U   |  I   |  O   |  P   |  BS  |
+    // |  TAB  |  A  |  S  |  D   |  F   |  G   |                                      |  H   |  J   |  K   |  L   |  Ñ   |   ´  |
+    // |RUNNER |  Z  |  X  |  C   |  V   |  B   |CAPS WORD| LOCK  |  |BLQ NUM|CAPS WORD|  N   |  M   |  ,   |  .   |  -   |   `  |
+    //                     | ENC1 | NAV  | NUM  |  SPACE  | ENTER |  | ENTER |  SPACE  | SYM  | SNAP | ENC2 |
       bindings = <
-        &kp ESC    &kp Q &kp W      &kp E       &kp R       &kp T                                                       &kp Y      &kp U          &kp I      &kp O      &kp P       &kp BSPC
-        &kp TAB    &kp A &hm LALT S &hm LGUI D  &hm LCTRL F &kp G                                                       &kp H      &hm RCTRL J    &hm RGUI K &hm LALT L &kp ES_NTIL &kp ES_ACUT
-        &kp RUNNER &kp Z &kp X      &kp C       &kp V       &kp B      &kp CAPS  &caps_word         &tog NUM  &kp CAPS  &kp N      &kp M          &kp COMMA  &kp DOT    &kp ES_MINS &kp LOCK
-                                    &alt_tabber LAYER(NAV)  LAYER(NUM) &kp SPACE &kp ENTER          XXXXX     &kp SPACE LAYER(SYM) LAYER(SNAP)    &kp C_MUTE
+        &kp ESC    &kp Q &kp W      &kp E       &kp R       &kp T                                                      &kp Y      &kp U          &kp I      &kp O      &kp P       &kp BSPC
+        &kp TAB    &kp A &hm LALT S &hm LGUI D  &hm LCTRL F &kp G                                                      &kp H      &hm RCTRL J    &hm RGUI K &hm LALT L &kp ES_NTIL &kp ES_ACUT
+        &kp RUNNER &kp Z &kp X      &kp C       &kp V       &kp B      &caps_word &kp LOCK        &tog NUM  &caps_word &kp N      &kp M          &kp COMMA  &kp DOT    &kp ES_MINS &kp ES_GRV
+                                    &alt_tabber LAYER(NAV)  LAYER(NUM) &kp SPACE  &kp ENTER       XXXXX     &kp SPACE  LAYER(SYM) LAYER(SNAP)    &kp C_MUTE
       >;
 
       sensor-bindings = <&inc_dec_kp LC(LG(LEFT)) LC(LG(RIGHT)) &inc_dec_kp C_VOL_DN C_VOL_UP>;
