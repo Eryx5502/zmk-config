@@ -245,10 +245,10 @@
     // |     |WIN 1|WIN 2|WIN 3|WIN 4|WIN 5|     |     |         |      |     |     |     |     |     |      |      |
     //                   |     |     |     |     |     |         |      |     |     |     | ENC2|
       bindings = <
-        _____ _____        _____        _____        _____        _____                                       &kp META(LEFT) &kp META(DOWN) &kp META(UP) &kp META(RIGHT) _____ _____
-        _____ &kp META(N0) &kp META(N1) &kp META(N2) &kp META(N3) &kp META(N4)                                &kp LG(LEFT)   &kp LG(DOWN)   &kp LG(UP)   &kp LG(RIGHT)   _____ &kp LSG(ES_NTIL)
-        _____ &kp LG(N1)   &kp LG(N2)   &kp LG(N3)   &kp LG(N4)   &kp LG(N5)   _____ _____        _____ _____ _____          _____          _____        _____           _____ _____
-                                        &kp CLOSE    _____        _____        _____ _____        _____ _____ _____          _____          &kp C_PLAY_PAUSE
+        _____ _____        _____        _____        _____        _____                            &kp META(LEFT) &kp META(DOWN) &kp META(UP) &kp META(RIGHT) _____ _____
+        _____ &kp META(N0) &kp META(N1) &kp META(N2) &kp META(N3) &kp META(N4)                     &kp LG(LEFT)   &kp LG(DOWN)   &kp LG(UP)   &kp LG(RIGHT)   _____ &kp LSG(ES_NTIL)
+        _____ &kp LG(N1)   &kp LG(N2)   &kp LG(N3)   &kp LG(N4)   &kp LG(N5)           XXXXX XXXXX _____          _____          _____        _____           _____ _____
+                                        &kp CLOSE _____     _____     _____ _____      _____ _____ _____          _____          &kp C_PLAY_PAUSE
       >;
 
       sensor-bindings = <&inc_dec_kp LS(TAB) TAB &inc_dec_kp C_VOL_DN C_VOL_UP>;
