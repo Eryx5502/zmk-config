@@ -31,7 +31,7 @@
     #define MO_TOG(layer) &mo_tog layer layer
     #define MO_SL(layer) &mo_sl layer layer
     #define LAYER(layer) MO_SL(layer)
-    #define META(key) LC(LA(LG(key)))
+    #define META(key) LG(LA(LC(key)))
     #define LSG(key) LS(LG(key))
 
 &caps_word {
