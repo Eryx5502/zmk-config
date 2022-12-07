@@ -71,21 +71,25 @@
       timeout-ms = <50>;
       key-positions = <30 43>;
       bindings = <&skq LSHFT>;
+      layers = <ALPHA SYM NUM NAV>;
     };
     combo_rshift {
       timeout-ms = <50>;
       key-positions = <33 46>;
       bindings = <&skq RSHFT>;
+      layers = <ALPHA SYM NUM NAV>;
     };
     combo_caps {
       timeout-ms = <50>;
       key-positions = <30 33>;
       bindings = <&kp CAPS>;
+      layers = <ALPHA>;
     };
     combo_bloq_nav {
       timeout-ms = <50>;
       key-positions = <32 45>;
       bindings = <&tog NAV>;
+      layers = <ALPHA>;
     };
     combo_lol {
       timeout-ms = <50>;
@@ -106,7 +110,7 @@
       label = "HOMEROW_MODS";
       #binding-cells = <2>;
       tapping-term-ms = <300>;
-      quick-tap-ms = <100>;
+      quick-tap-ms = <150>;
       flavor = "tap-preferred";
       bindings = <&kp>, <&kp>;
     };
@@ -134,47 +138,19 @@
       tapping-term-ms = <200>;
       bindings = <&mo>, <&sl>;
     };
-    td_abk: tap_dance_abk {
-        compatible = "zmk,behavior-tap-dance";
-        label = "TAP_DANCE_ABK";
-        #binding-cells = <0>;
-        tapping-term-ms = <200>;
-        bindings = <&kp ES_LABK>, <&kp ES_RABK>;
+    excl: exclamation {
+      compatible = "zmk,behavior-mod-morph";
+      label = "EXCL_MARK";
+      #binding-cells = <0>;
+      bindings = <&kp ES_EXLM>, <&kp ES_IEXL>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
     };
-    td_prn: tap_dance_prn {
-        compatible = "zmk,behavior-tap-dance";
-        label = "TAP_DANCE_PRN";
-        #binding-cells = <0>;
-        tapping-term-ms = <200>;
-        bindings = <&kp ES_LPRN>, <&kp ES_RPRN>;
-    };
-    td_brc: tap_dance_brc {
-        compatible = "zmk,behavior-tap-dance";
-        label = "TAP_DANCE_BRC";
-        #binding-cells = <0>;
-        tapping-term-ms = <200>;
-        bindings = <&kp ES_LBRC>, <&kp ES_RBRC>;
-    };
-    td_cbr: tap_dance_cbr {
-        compatible = "zmk,behavior-tap-dance";
-        label = "TAP_DANCE_CBR";
-        #binding-cells = <0>;
-        tapping-term-ms = <200>;
-        bindings = <&kp ES_LCBR>, <&kp ES_RCBR>;
-    };
-    td_exlm: tap_dance_exlm {
-        compatible = "zmk,behavior-tap-dance";
-        label = "TAP_DANCE_EXLM";
-        #binding-cells = <0>;
-        tapping-term-ms = <200>;
-        bindings = <&kp ES_EXLM>, <&kp ES_IEXL>;
-    };
-    td_ques: tap_dance_ques {
-        compatible = "zmk,behavior-tap-dance";
-        label = "TAP_DANCE_QUES";
-        #binding-cells = <0>;
-        tapping-term-ms = <200>;
-        bindings = <&kp ES_QUES>, <&kp ES_IQUE>;
+    ques: question {
+      compatible = "zmk,behavior-mod-morph";
+      label = "QUEST_MARK";
+      #binding-cells = <0>;
+      bindings = <&kp ES_QUES>, <&kp ES_IQUE>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
     };
   };
 
@@ -216,15 +192,15 @@
 
 		sym_layer {
     // -------------------------------------------------------------------------------------------------------------------------
-    // |   º   |  1  |  2  |  3   |  4   |  5   |                                    |  6  |  7  |  8   |  9   |  0   |  =  |
-    // |   #   |  @  |  '  |  "   |  *   |  /   |                                    |  <  |  (  |  [   |  {   |  |   |  ~  |
-    // |   ¬   |  %  |  &  |  €   |  $   |  \   |         |       |  |       |       |  ·  |  !  |  ?   |  +   |  -   |  `  |
+    // |   º   |  #  |  "  |  €   |  $   |  %   |                                    |  >  |  )  |  ]   |  }   |  !¡  |     |
+    // |       |  @  |  '  |  \   |  /   |  *   |                                    |  <  |  (  |  [   |  {   |  ?¿  |  ~  |
+    // |       |  ¬  |  ·  |  |   |  -   |  +   |         |       |  |       |       |  &  |  =  |      |      |      |  ^  |
     //                     | ENC1 |      |      |         |       |  |       |       |     |     | ENC2 |
       bindings = <
-        &kp ES_MORD &kp N1      &kp N2      &kp N3      &kp N4      &kp N5                                   &kp N6      &kp N7   &kp N8   &kp N9      &kp N0      &kp ES_EQL
-        &kp ES_HASH &kp ES_AT   &kp ES_QUOT &kp ES_DQUO &kp ES_ASTR &kp ES_SLSH                              &td_abk     &td_prn  &td_brc  &td_cbr     &kp ES_PIPE &kp ES_TILD
-        &kp ES_NOT  &kp ES_PERC &kp ES_AMPR &kp ES_EURO &kp ES_DLR  &kp ES_BSLS XXXXX XXXXX      XXXXX XXXXX &kp ES_BULT &td_exlm &td_ques &kp ES_PLUS &kp ES_MINS &kp ES_GRV
-                                            &kp CLOSE   _____       _____       _____ _____      _____ _____ _____       _____    &kp C_PLAY_PAUSE
+        &kp ES_MORD &kp ES_HASH &kp ES_DQUO &kp ES_EURO &kp ES_DLR  &kp ES_PERC                              &kp ES_RABK &kp ES_RPRN &kp ES_RBRC &kp ES_RCBR &excl _____
+        _____       &kp ES_AT   &kp ES_QUOT &kp ES_BSLS &kp ES_SLSH &kp ES_ASTR                              &kp ES_LABK &kp ES_LPRN &kp ES_LBRC &kp ES_LCBR &ques &kp ES_TILD
+        _____       &kp ES_NOT  &kp ES_BULT &kp ES_PIPE &kp ES_MINS &kp ES_PLUS _____ _____      _____ _____ &kp ES_AMPR &kp ES_EQL  _____       _____       _____ &kp ES_CIRC
+                                            &kp CLOSE   _____       _____       _____ _____      _____ _____ _____       _____       &kp C_PLAY_PAUSE
       >;
 
       sensor-bindings = <&inc_dec_kp LS(TAB) TAB &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -239,7 +215,7 @@
       bindings = <
         _____ &kp F1 &kp F2      &kp F3      &kp F4       _____                              &kp ES_SLSH &kp N7       &kp N8      &kp N9      &kp ES_MINS &kp BSPC
         _____ &kp F5 &hm LALT F6 &hm LGUI F7 &hm LCTRL F8 _____                              &kp ES_ASTR &hm RCTRL N4 &hm RGUI N5 &hm LALT N6 &kp ES_PLUS &kp COMMA
-        _____ &kp F9 &kp F10     &kp F11     &kp F12      _____ XXXXX XXXXX      XXXXX XXXXX &kp ES_EQL  &kp N1       &kp N2      &kp N3      &kp KP_DOT  &kp ENTER
+        _____ &kp F9 &kp F10     &kp F11     &kp F12      _____ _____ _____      _____ _____ &kp ES_EQL  &kp N1       &kp N2      &kp N3      &kp KP_DOT  &kp ENTER
                                              &kp CLOSE    _____ _____ _____      _____ _____ _____       &kp N0       &kp C_PLAY_PAUSE
       >;
 
@@ -255,7 +231,7 @@
       bindings = <
         _____          _____ _____      _____     &kp PSCRN _____                                  &kp LC(LEFT) &kp LC(DOWN) &kp LC(UP)  &kp LC(RIGHT) &kp INSERT &kp DELETE
         MO_TOG(ADJUST) _____ &kp LALT   &kp LGUI  &kp LCTRL &kp LC(F)                              &kp LEFT     &kp DOWN     &kp UP      &kp RIGHT     &kp HOME   &kp PG_UP
-        _____          _____ &kp LC(X)  &kp LC(C) &kp LC(V) _____     XXXXX XXXXX      XXXXX XXXXX &kp LC(H)    &kp LC(J)    &kp LC(K)   &kp LC(L)     &kp END    &kp PG_DN
+        _____          _____ &kp LC(X)  &kp LC(C) &kp LC(V) _____     _____ _____      _____ _____ &kp LC(H)    &kp LC(J)    &kp LC(K)   &kp LC(L)     &kp END    &kp PG_DN
                                         &kp CLOSE _____     _____     _____ _____      _____ _____ _____       _____        &kp C_PLAY_PAUSE
       >;
 
@@ -271,7 +247,7 @@
       bindings = <
         _____ _____        _____        _____        _____        _____                                       &kp META(LEFT) &kp META(DOWN) &kp META(UP) &kp META(RIGHT) _____ _____
         _____ &kp META(N0) &kp META(N1) &kp META(N2) &kp META(N3) &kp META(N4)                                &kp LG(LEFT)   &kp LG(DOWN)   &kp LG(UP)   &kp LG(RIGHT)   _____ &kp LSG(ES_NTIL)
-        _____ &kp LG(N1)   &kp LG(N2)   &kp LG(N3)   &kp LG(N4)   &kp LG(N5)   XXXXX XXXXX        XXXXX XXXXX _____          _____          _____        _____           _____ _____
+        _____ &kp LG(N1)   &kp LG(N2)   &kp LG(N3)   &kp LG(N4)   &kp LG(N5)   _____ _____        _____ _____ _____          _____          _____        _____           _____ _____
                                         &kp CLOSE    _____        _____        _____ _____        _____ _____ _____          _____          &kp C_PLAY_PAUSE
       >;
 
@@ -282,12 +258,12 @@
     // ---------------------------------------------------------------------------------------------------------------
     // |     |     |     |     |EP_ON |      |                                  |OUT_USB|OUT_TOG|OUT_BLE|       |       |      |
     // |     |     |     |     |EP_TOG|QWERTY|                                  |BT_CLR |BT_SEL1|BT_SEL2|BT_SEL3|BT_SEL4|      |
-    // |     |     |     |     |EP_OFF|EP_TOG|     |     |         |      |     |       |       |       |       |       |      |
+    // |     |     |     |     |EP_OFF|      |     |     |         |      |     |       |       |       |       |       |      |
     //                   |     |      |      |     |     |         |      |     |       |       |   ENC2|
       bindings = <
         _____ _____ _____ _____ &ext_power EP_ON  _____                                          &out OUT_USB   &out OUT_TOG &out OUT_BLE _____        _____         _____
         _____ _____ _____ _____ &ext_power EP_TOG &to ALPHA                                      &bt BT_CLR     &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  _____
-        _____ _____ _____ _____ &ext_power EP_OFF _____ XXXXX XXXXX      XXXXX XXXXX _____          _____        _____        _____        _____         _____
+        _____ _____ _____ _____ &ext_power EP_OFF _____ _____ _____      _____ _____ _____          _____        _____        _____        _____         _____
                                      _____ _____  _____ _____ _____      _____ _____ _____          _____        _____
       >;
 
