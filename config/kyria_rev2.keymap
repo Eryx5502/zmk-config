@@ -85,11 +85,16 @@
       bindings = <&kp CAPS>;
       layers = <ALPHA>;
     };
+    combo_to_alpha {
+      timeout-ms = <50>;
+      key-positions = <24 39>;
+      bindings = <&to ALPHA>;
+    };
     combo_bloq_nav {
       timeout-ms = <50>;
       key-positions = <32 45>;
       bindings = <&tog NAV>;
-      layers = <ALPHA>;
+      layers = <ALPHA NAV>;
     };
     combo_lol {
       timeout-ms = <50>;
