@@ -38,8 +38,8 @@
   continue-list = <LSHFT RSHIFT ES_UNDS ES_MINS ES_PLUS BSPC ES_ACUT>;
 };
 // Encoder resolutions
-  &left_encoder   { resolution = <4>; };
-  &right_encoder  { resolution = <4>; };
+  &left_encoder   { resolution = <2>; };
+  &right_encoder  { resolution = <2>; };
 
 / {
   macros {
