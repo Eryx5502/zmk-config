@@ -146,13 +146,26 @@
     };
     combo_lol {
       timeout-ms = <50>;
-      key-positions = <0 11>;
+      key-positions = <0 12 24>;
       bindings = <&to LOL>;
+      layers = <ALPHA>;
+    };
+    combo_lol_to_alpha {
+      timeout-ms = <50>;
+      key-positions = <0 12 24>;
+      bindings = <&to ALPHA>;
+      layers = <LOL>;
     };
     combo_lol_ctrl {
       timeout-ms = <50>;
       key-positions = <30 43>;
       bindings = <&kp LCTRL>;
+      layers = <LOL>;
+    };
+    combo_lol_shop {
+      timeout-ms = <50>;
+      key-positions = <31 44>;
+      bindings = <&kp P>;
       layers = <LOL>;
     };
   };
