@@ -115,6 +115,12 @@
 
   combos {
     compatible = "zmk,combos";
+    combo_esc {
+      timeout-ms = <50>;
+      key-positions = <19 20>;
+      bindings = <&kp ESC>;
+      layers = <ALPHA>;
+    };
     combo_lshift {
       timeout-ms = <50>;
       key-positions = <30 43>;
@@ -225,14 +231,14 @@
 
 		default_layer {
     // ---------------------------------------------------------------------------------------------------------------------------
-    // |  ESC  |  Q  |  W  |  E   |  R   |  T   |                                      |  Y   |  U   |  I   |  O   |  P   |  BS  |
+    // |   /   |  Q  |  W  |  E   |  R   |  T   |                                      |  Y   |  U   |  I   |  O   |  P   |  BS  |
     // |  TAB  |  A  |  S  |  D   |  F   |  G   |                                      |  H   |  J   |  K   |  L   |  Ñ   |   ´  |
-    // |RUNNER |  Z  |  X  |  C   |  V   |  B   |CAPS WORD| LOCK  |  |BLQ NUM|CAPS WORD|  N   |  M   |  ,   |  .   |  -   |   +  |
+    // |RUNNER |  Z  |  X  |  C   |  V   |  B   |CAPS WORD| LOCK  |  |BLQ NUM|CAPS WORD|  N   |  M   |  ,   |  .   |  _   |   $  |
     //                     | ENC1 | NAV  | NUM  |  SPACE  | ENTER |  | ENTER |  SPACE  | SYM  | SNAP | ENC2 |
       bindings = <
-        &kp ESC    &kp Q &kp W      &kp E       &kp R       &kp T                                                       &kp Y      &kp U          &kp I      &kp O      &kp P       &kp BSPC
-        &kp TAB    &kp A &hm LALT S &hm LGUI D  &hm LCTRL F &kp G                                                       &kp H      &hm RCTRL J    &hm RGUI K &hm LALT L &kp ES_NTIL &kp ES_ACUT
-        &kp RUNNER &kp Z &kp X      &kp C       &kp V       &kp B      &caps_word &kp LOCK        &tog NUM   &caps_word &kp N      &kp M          &kp COMMA  &kp DOT    &kp ES_MINS &kp ES_PLUS
+        &kp ES_SLSH &kp Q &kp W      &kp E       &kp R       &kp T                                                       &kp Y      &kp U          &kp I      &kp O      &kp P       &kp BSPC
+        &kp TAB     &kp A &hm LALT S &hm LGUI D  &hm LCTRL F &kp G                                                       &kp H      &hm RCTRL J    &hm RGUI K &hm LALT L &kp ES_NTIL &kp ES_ACUT
+        &kp RUNNER  &kp Z &kp X      &kp C       &kp V       &kp B      &caps_word &kp LOCK        &tog NUM   &caps_word &kp N      &kp M          &kp COMMA  &kp DOT    &kp ES_UNDS &kp ES_DLR
                                     &alt_tabber LAYER(NAV)  LAYER(NUM) &kp SPACE  &kp ENTER       &kp ENTER  &kp SPACE  LAYER(SYM) LAYER(SNAP)    &kp C_MUTE
       >;
 
@@ -258,15 +264,15 @@
 
 		sym_layer {
     // -------------------------------------------------------------------------------------------------------------------------
-    // |   º   |  #  |  "  |  €   |  $   |  %   |                                    |  >  |  )  |  ]   |  }   |  !¡  |     |
-    // |       |  @  |  '  |  \   |  /   |  =   |                                    |  <  |  (  |  [   |  {   |  ?¿  |  ~  |
-    // |       |  ¬  |  `  |  |   |  *   |  ·   |         |       |  |       |       |  ç  |  &  |      |      |  _   |  ^  |
+    // |   º   |  #  |  \  |  {   |  }   |  "   |                                    |     |  <  |  >   |  =   |  !¡  |     |
+    // |       |  @  |  |  |  [   |  ]   |  '   |                                    |     |  (  |  )   |  ~   |  ?¿  |  ç  |
+    // |       |  ¬  |  &  |  %   |  *   |  `   |         |       |  |       |       |  ·  |  +  |  -   |  ^   |  €   |     |
     //                     | ENC1 |      |      |         |       |  |       |       |     |     | ENC2 |
       bindings = <
-        &kp ES_MORD &kp ES_HASH &kp ES_DQUO      &kp ES_EURO      &kp ES_DLR        &kp ES_PERC                              &kp ES_RABK &kp ES_RPRN       &kp ES_RBRC      &kp ES_RCBR      &excl       _____
-        _____       &kp ES_AT   &hm LALT ES_QUOT &hm LGUI ES_BSLS &hm LCTRL ES_SLSH &kp ES_EQL                               &kp ES_LABK &hm RCTRL ES_LPRN &hm RGUI ES_LBRC &hm LALT ES_LCBR &ques       &kp ES_TILD
-        _____       &kp ES_NOT  &kp ES_GRV       &kp ES_PIPE      &kp ES_ASTR       &kp ES_BULT _____ _____      _____ _____ &kp ES_CCED &kp ES_AMPR       _____            _____            &kp ES_UNDS &kp ES_CIRC
-                                                 &kp CLOSE        _____       _____       _____ _____            _____ _____ _____       _____             &kp C_PLAY_PAUSE
+        &kp ES_MORD &kp ES_HASH &kp ES_BSLS      &kp ES_LCBR      &kp ES_RCBR       &kp ES_DQUO                              _____        &kp ES_LABK       &kp ES_RABK      &kp ES_EQL       &excl       _____
+        _____       &kp ES_AT   &hm LALT ES_PIPE &hm LGUI ES_LBRC &hm LCTRL ES_RBRC &kp ES_QUOT                              _____        &hm RCTRL ES_LPRN &hm RGUI ES_RPRN &hm LALT ES_TILD &ques       &kp ES_CCED
+        _____       &kp ES_NOT  &kp ES_AMPR      &kp ES_PERC      &kp ES_ASTR       &kp ES_GRV  _____ _____      _____ _____ &kp ES_BULT  &kp ES_PLUS       &kp ES_MINS      &kp ES_CIRC      &kp ES_EURO _____
+                                                 &kp CLOSE        _____       _____       _____ _____            _____ _____ _____        _____             &kp C_PLAY_PAUSE
       >;
 
       sensor-bindings = <&inc_dec_kp LS(TAB) TAB &inc_dec_kp C_PREV C_NEXT>;
@@ -281,7 +287,7 @@
       bindings = <
         _____ &kp F1 &kp F2      &kp F3      &kp F4       _____                              &kp ES_SLSH &kp N7       &kp N8      &kp N9      &kp ES_MINS &kp BSPC
         _____ &kp F5 &hm LALT F6 &hm LGUI F7 &hm LCTRL F8 _____                              &kp ES_ASTR &hm RCTRL N4 &hm RGUI N5 &hm LALT N6 &kp ES_PLUS &kp COMMA
-        _____ &kp F9 &kp F10     &kp F11     &kp F12      _____ _____ _____      _____ _____ &kp ES_EQL  &kp N1       &kp N2      &kp N3      &kp KP_DOT  &kp ENTER
+        _____ &kp F9 &kp F10     &kp F11     &kp F12      _____ _____ _____      _____ _____ &kp ES_EQL  &kp N1       &kp N2      &kp N3      &kp DOT     &kp ENTER
                                              &kp CLOSE    _____ _____ _____      _____ _____ _____       &kp N0       &kp C_PLAY_PAUSE
       >;
 
