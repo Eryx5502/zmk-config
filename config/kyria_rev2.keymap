@@ -265,12 +265,12 @@
 		sym_layer {
     // -------------------------------------------------------------------------------------------------------------------------
     // |   º   |  /  |  \  |  {   |  }   |  '   |                                    |  ¬  |  ·  |  `   |  "   |  ?¿  |     |
-    // |   _   |  @  |  |  |  [   |  ]   |  $   |                                    |  %  |  (  |  )   |  =   |  !¡  |  ç  |
+    // |       |  @  |  |  |  [   |  ]   |  _   |                                    |  %  |  (  |  )   |  =   |  !¡  |  ç  |
     // |       |  &  |  ^  |  -   |  +   |  *   |         |       |  |       |       |  #  |  <  |  >   |  ~   |  €   |     |
     //                     | ENC1 |      |      |         |       |  |       |       |     |     | ENC2 |
       bindings = <
         &kp ES_MORD &kp ES_SLSH &kp ES_BSLS      &kp ES_LCBR      &kp ES_RCBR       &kp ES_QUOT                              &kp ES_NOT   &kp ES_BULT       &kp ES_GRV       &kp ES_DQUO      &ques       _____
-        &kp ES_UNDS &kp ES_AT   &hm LALT ES_PIPE &hm LGUI ES_LBRC &hm LCTRL ES_RBRC &kp ES_DLR                               &kp ES_PERC  &hm RCTRL ES_LPRN &hm RGUI ES_RPRN &hm LALT ES_EQL  &excl       &kp ES_CCED
+        _____       &kp ES_AT   &hm LALT ES_PIPE &hm LGUI ES_LBRC &hm LCTRL ES_RBRC &kp ES_UNDS                              &kp ES_PERC  &hm RCTRL ES_LPRN &hm RGUI ES_RPRN &hm LALT ES_EQL  &excl       &kp ES_CCED
         _____       &kp ES_AMPR &kp ES_CIRC      &kp ES_MINS      &kp ES_PLUS       &kp ES_ASTR _____ _____      _____ _____ &kp ES_HASH  &kp ES_LABK       &kp ES_RABK      &kp ES_TILD      &kp ES_EURO _____
                                                  &kp CLOSE        _____       _____       _____ _____            _____ _____ _____        _____             &kp C_PLAY_PAUSE
       >;
