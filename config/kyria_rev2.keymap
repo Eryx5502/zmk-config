@@ -125,13 +125,13 @@
       timeout-ms = <50>;
       key-positions = <30 43>;
       bindings = <&skq LSHFT>;
-      layers = <SYM NUM NAV>;
+      layers = <ALPHA SYM NUM NAV>;
     };
     combo_rshift {
       timeout-ms = <50>;
       key-positions = <33 46>;
       bindings = <&skq RSHFT>;
-      layers = <SYM NUM NAV>;
+      layers = <ALPHA SYM NUM NAV>;
     };
     combo_caps {
       timeout-ms = <50>;
@@ -236,10 +236,10 @@
     // |RUNNER |  Z  |  X  |  C   |  V   |  B   |CAPS WORD| LOCK  |  |BLQ NUM|CAPS WORD|  N   |  M   |  ,   |  .   |  -   |  $  |
     //                     | ENC1 | NAV  | NUM  |    BS   | ENTER |  | ENTER |  SPACE  | SYM  | SNAP | ENC2 |
       bindings = <
-        &kp ESC     &kp Q       &kp W      &kp E       &kp R       &kp T                                                       &kp Y      &kp U          &kp I      &kp O      &kp P             &kp ES_SLSH
-        &kp TAB     &hm LSHFT A &hm LALT S &hm LGUI D  &hm LCTRL F &kp G                                                       &kp H      &hm RCTRL J    &hm RGUI K &hm LALT L &hm RSHFT ES_NTIL &kp ES_ACUT
-        &kp RUNNER  &kp Z       &kp X      &kp C       &kp V       &kp B      &caps_word &kp LOCK        &tog NUM   &caps_word &kp N      &kp M          &kp COMMA  &kp DOT    &kp ES_MINS       &kp ES_DLR
-                                           &alt_tabber LAYER(NAV)  LAYER(NUM) &kp BSPC   &kp ENTER       &kp ENTER  &kp SPACE  LAYER(SYM) LAYER(SNAP)    &kp C_MUTE
+        &kp ESC     &kp Q &kp W      &kp E       &kp R       &kp T                                                       &kp Y      &kp U          &kp I      &kp O      &kp P       &kp ES_SLSH
+        &kp TAB     &kp A &hm LALT S &hm LGUI D  &hm LCTRL F &kp G                                                       &kp H      &hm RCTRL J    &hm RGUI K &hm LALT L &kp ES_NTIL &kp ES_ACUT
+        &kp RUNNER  &kp Z &kp X      &kp C       &kp V       &kp B      &caps_word &kp LOCK        &tog NUM   &caps_word &kp N      &kp M          &kp COMMA  &kp DOT    &kp ES_MINS &kp ES_DLR
+                                    &alt_tabber LAYER(NAV)  LAYER(NUM)  &kp BSPC   &kp ENTER       &kp ENTER  &kp SPACE  LAYER(SYM) LAYER(SNAP)    &kp C_MUTE
       >;
 
       sensor-bindings = <&inc_dec_kp LC(LG(LEFT)) LC(LG(RIGHT)) &inc_dec_kp C_VOL_DN C_VOL_UP>;
