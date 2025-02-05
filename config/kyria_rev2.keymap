@@ -233,12 +233,12 @@
     // ---------------------------------------------------------------------------------------------------------------------------
     // |  ESC  |  Q  |  W  |  E   |  R   |  T   |                                      |  Y   |  U   |  I   |  O   |  P   |  /  |
     // |  TAB  |  A  |  S  |  D   |  F   |  G   |                                      |  H   |  J   |  K   |  L   |  Ñ   |  ´  |
-    // |RUNNER |  Z  |  X  |  C   |  V   |  B   |CAPS WORD| LOCK  |  |BLQ NUM|CAPS WORD|  N   |  M   |  ,   |  .   |  :   |  $  |
+    // |RUNNER |  Z  |  X  |  C   |  V   |  B   |CAPS WORD| LOCK  |  |BLQ NUM|CAPS WORD|  N   |  M   |  ,   |  .   |  -   |  $  |
     //                     | ENC1 | NAV  | NUM  |    BS   | ENTER |  | ENTER |  SPACE  | SYM  | SNAP | ENC2 |
       bindings = <
         &kp ESC     &kp Q &kp W      &kp E       &kp R       &kp T                                                       &kp Y      &kp U          &kp I      &kp O      &kp P       &kp ES_SLSH
         &kp TAB     &kp A &hm LALT S &hm LGUI D  &hm LCTRL F &kp G                                                       &kp H      &hm RCTRL J    &hm RGUI K &hm LALT L &kp ES_NTIL &kp ES_ACUT
-        &kp RUNNER  &kp Z &kp X      &kp C       &kp V       &kp B      &caps_word &kp LOCK        &tog NUM   &caps_word &kp N      &kp M          &kp COMMA  &kp DOT    &kp ES_COLN &kp ES_DLR
+        &kp RUNNER  &kp Z &kp X      &kp C       &kp V       &kp B      &caps_word &kp LOCK        &tog NUM   &caps_word &kp N      &kp M          &kp COMMA  &kp DOT    &kp ES_MINS &kp ES_DLR
                                     &alt_tabber LAYER(NAV)  LAYER(NUM)  &kp BSPC   &kp ENTER       &kp ENTER  &kp SPACE  LAYER(SYM) LAYER(SNAP)    &kp C_MUTE
       >;
 
@@ -250,13 +250,13 @@
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! NO ACTUALIZADO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     // |  ESC  |  1   |  2   |  3   |  4   |  5     |                                  |        |     |     |     |     |        |
     // |  TAB  |  Q   |  W   |  E   |  R   |  T     |                                  |        |     |     |     |     |        |
-    // |   Z   |  A   |  S   |  D   |  F   |  G     |         |         |  |     |     |        |     |     |     |     | ALPHA  |
-    //                       | ENC1 | LALT | LCTRL  |  SPACE  |  ENTER  |  |     |     |  LGUI  |     | ENC2|
+    // |   B   |  A   |  S   |  D   |  F   |  G     |         |         |  |     |     |        |     |     |     |     | ALPHA  |
+    //                       | ENC1 | LSHFT| LCTRL  |  SPACE  |  ENTER  |  |     |     |  LGUI  |     | ENC2|
       bindings = <
-        &kp ESC &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                                      XXXXX    XXXXX XXXXX XXXXX XXXXX XXXXX
-        &kp TAB &kp Q  &kp W  &kp E  &kp R  &kp T                                       XXXXX    XXXXX XXXXX XXXXX XXXXX XXXXX
-        &kp B   &kp A  &kp S  &kp D  &kp F  &kp G    &kp LCTRL &kp Z        XXXXX XXXXX XXXXX    XXXXX XXXXX XXXXX XXXXX &to ALPHA
-                       &kt C_MUTE    &kp Z  &kp LALT &kp SPACE &kp ENTER    XXXXX XXXXX &kp LGUI XXXXX &alt_tabber
+        &kp ESC &kp N1 &kp N2 &kp N3 &kp N4     &kp N5                                      XXXXX    XXXXX XXXXX XXXXX XXXXX XXXXX
+        &kp TAB &kp Q  &kp W  &kp E  &kp R      &kp T                                       XXXXX    XXXXX XXXXX XXXXX XXXXX XXXXX
+        &kp B   &kp A  &kp S  &kp D  &kp F      &kp G    &kp LCTRL &kp Z        XXXXX XXXXX XXXXX    XXXXX XXXXX XXXXX XXXXX &to ALPHA
+                       &kt C_MUTE    &kp LSHFT  &kp LALT &kp SPACE &kp ENTER    XXXXX XXXXX &kp LGUI XXXXX &alt_tabber
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp LS(TAB) TAB>;
@@ -265,13 +265,13 @@
 		sym_layer {
     // -------------------------------------------------------------------------------------------------------------------------
     // |   º   |  /  |  \  |  {   |  }   |  '   |                                    |  ¬  |  ·  |  `   |  "   |  ?¿  |     |
-    // |       |  @  |  |  |  [   |  ]   |  _   |                                    |  %  |  (  |  )   |  =   |  !¡  |  ç  |
-    // |       |  &  |  ^  |  -   |  +   |  *   |         |       |  |       |       |  #  |  <  |  >   |  ~   |  €   |     |
+    // |       |  @  |  |  |  [   |  ]   |  _   |                                    |  #  |  (  |  )   |  =   |  !¡  |  ç  |
+    // |       |  &  |  ^  |  -   |  +   |  *   |         |       |  |       |       |  %  |  <  |  >   |  ~   |  €   |     |
     //                     | ENC1 |      |      |         |       |  |       |       |     |     | ENC2 |
       bindings = <
         &kp ES_MORD &kp ES_SLSH &kp ES_BSLS      &kp ES_LCBR      &kp ES_RCBR       &kp ES_QUOT                              &kp ES_NOT   &kp ES_BULT       &kp ES_GRV       &kp ES_DQUO      &ques       _____
-        _____       &kp ES_AT   &hm LALT ES_PIPE &hm LGUI ES_LBRC &hm LCTRL ES_RBRC &kp ES_UNDS                              &kp ES_PERC  &hm RCTRL ES_LPRN &hm RGUI ES_RPRN &hm LALT ES_EQL  &excl       &kp ES_CCED
-        _____       &kp ES_AMPR &kp ES_CIRC      &kp ES_MINS      &kp ES_PLUS       &kp ES_ASTR _____ _____      _____ _____ &kp ES_HASH  &kp ES_LABK       &kp ES_RABK      &kp ES_TILD      &kp ES_EURO _____
+        _____       &kp ES_AT   &hm LALT ES_PIPE &hm LGUI ES_LBRC &hm LCTRL ES_RBRC &kp ES_UNDS                              &kp ES_HASH  &hm RCTRL ES_LPRN &hm RGUI ES_RPRN &hm LALT ES_EQL  &excl       &kp ES_CCED
+        _____       &kp ES_AMPR &kp ES_CIRC      &kp ES_MINS      &kp ES_PLUS       &kp ES_ASTR _____ _____      _____ _____ &kp ES_PERC  &kp ES_LABK       &kp ES_RABK      &kp ES_TILD      &kp ES_EURO _____
                                                  &kp CLOSE        _____             _____       _____ _____      _____ _____ _____        _____             &kp C_PLAY_PAUSE
       >;
 
