@@ -357,10 +357,10 @@
     // |  CTRL |  1   |  2   |  3   |  4   |  5     |         |         |  |     |     |        |     |     |     |     | ALPHA  |
     //                       | ENC1 | LSHFT| SPACE  |  SPACE  |  ENTER  |  |     |     |  LGUI  |     | ENC2|
       bindings = <
-        &kp ESC &kp Q  &kp W  &kp E  &kp R      &kp T                                        XXXXX    XXXXX XXXXX XXXXX XXXXX XXXXX
-        &kp TAB &kp A  &kp S  &kp D  &kp F      &kp L                                        XXXXX    XXXXX XXXXX XXXXX XXXXX XXXXX
-        &kp B   &kp N1 &kp N2 &kp N3 &kp N4     &kp N5    &kp LCTRL &kp Z        XXXXX XXXXX XXXXX    XXXXX XXXXX XXXXX XXXXX &to ALPHA
-                       &kt C_MUTE    &kp LSHFT  &kp SPACE &kp SPACE &kp ENTER    XXXXX XXXXX &kp LGUI XXXXX &alt_tabber
+        &kp ESC   &kp Q  &kp W  &kp E  &kp R      &kp T                                        XXXXX    XXXXX XXXXX XXXXX XXXXX XXXXX
+        &kp TAB   &kp A  &kp S  &kp D  &kp F      &kp L                                        XXXXX    XXXXX XXXXX XXXXX XXXXX XXXXX
+        &kp LCTRL &kp N1 &kp N2 &kp N3 &kp N4     &kp N5    &kp LCTRL &kp Z        XXXXX XXXXX XXXXX    XXXXX XXXXX XXXXX XXXXX &to ALPHA
+                         &kt C_MUTE    &kp LSHFT  &kp SPACE &kp SPACE &kp ENTER    XXXXX XXXXX &kp LGUI XXXXX &alt_tabber
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp LS(TAB) TAB>;
