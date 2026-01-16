@@ -354,12 +354,12 @@
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! NO ACTUALIZADO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     // |  ESC  |  Q   |  W   |  E   |  R   |  T     |                                  |        |     |     |     |     |        |
     // | SHIFT |  A   |  S   |  D   |  F   |  L     |                                  |        |     |     |     |     |        |
-    // |  CTRL |  1   |  2   |  3   |  4   |  5     |         |         |  |     |     |        |     |     |     |     | ALPHA  |
+    // |  CTRL |  1   |  2   |  3   |  4   |  5     |   F3    |   F5    |  |     |     |        |     |     |     |     | ALPHA  |
     //                       | ENC1 | LSHFT| SPACE  |  SPACE  |  ENTER  |  |     |     |  LGUI  |     | ENC2|
       bindings = <
         &kp ESC   &kp Q  &kp W  &kp E  &kp R      &kp T                                        XXXXX    XXXXX XXXXX XXXXX XXXXX XXXXX
         &kp TAB   &kp A  &kp S  &kp D  &kp F      &kp L                                        XXXXX    XXXXX XXXXX XXXXX XXXXX XXXXX
-        &kp LCTRL &kp N1 &kp N2 &kp N3 &kp N4     &kp N5    &kp LCTRL &kp Z        XXXXX XXXXX XXXXX    XXXXX XXXXX XXXXX XXXXX &to ALPHA
+        &kp LCTRL &kp N1 &kp N2 &kp N3 &kp N4     &kp N5    &kp F3    &kp F5       XXXXX XXXXX XXXXX    XXXXX XXXXX XXXXX XXXXX &to ALPHA
                          &kt C_MUTE    &kp LSHFT  &kp SPACE &kp SPACE &kp ENTER    XXXXX XXXXX &kp LGUI XXXXX &alt_tabber
       >;
 
