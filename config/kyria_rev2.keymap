@@ -357,10 +357,10 @@
     // |  CTRL |  1   |  2   |  3   |  4   |  5     |   F3    |   F5    |  |     |     |        |     |     |     |     | ALPHA  |
     //                       | ENC1 | LSHFT| SPACE  |  SPACE  |  ENTER  |  |     |     |  LGUI  |     | ENC2|
       bindings = <
-        &kp ESC   &kp Q  &kp W  &kp E  &kp R      &kp T                                        XXXXX    XXXXX XXXXX XXXXX XXXXX XXXXX
-        &kp TAB   &kp A  &kp S  &kp D  &kp F      &kp L                                        XXXXX    XXXXX XXXXX XXXXX XXXXX XXXXX
-        &kp LCTRL &kp N1 &kp N2 &kp N3 &kp N4     &kp N5    &kp F3    &kp F5       XXXXX XXXXX XXXXX    XXXXX XXXXX XXXXX XXXXX &to ALPHA
-                         &kt C_MUTE    &kp LSHFT  &kp SPACE &kp SPACE &kp ENTER    XXXXX XXXXX &kp LGUI XXXXX &alt_tabber
+        &kp ESC   &kp Q  &kp W  &kp E  &kp R      &kp T                                                  &kp Y      &kp U          &kp I      &kp O      &kp P       &kp ES_SLSH 
+        &kp TAB   &kp A  &kp S  &kp D  &kp F      &kp L                                                  &kp H      &hm RCTRL J    &hm RGUI K &hm LALT L &kp ES_NTIL &kp ES_ACUT 
+        &kp LCTRL &kp N1 &kp N2 &kp N3 &kp N4     &kp N5    &kp F3    &kp F5       &tog NUM   &caps_word &kp N      &kp M          &kp COMMA  &kp DOT    &kp ES_MINS &to ALPHA
+                         &kt C_MUTE    &kp LSHFT  &kp SPACE &kp c &kp ENTER    &kp ENTER  &kp SPACE  LAYER(SYM) LAYER(SNAP)    &kp C_MUTE                                    
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp LS(TAB) TAB>;
